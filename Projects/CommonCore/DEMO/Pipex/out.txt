@@ -1,0 +1,10 @@
+total 92
+------s--- 1 aruckenb 2024_vienna     0 May 22 11:18 4
+-rwxr-xr-x 1 aruckenb 2024_vienna 59448 May 22 14:37 a.out
+-rw-r--r-- 1 aruckenb 2024_vienna  3792 May  9 12:01 example.txt
+drwxr-xr-x 3 aruckenb 2024_vienna  4096 May 20 11:21 ft_printf
+drwxr-xr-x 3 aruckenb 2024_vienna  4096 May 20 11:21 libft
+-rw-r--r-- 1 aruckenb 2024_vienna  1141 May 17 10:22 Makefile
+-rw-r--r-- 1 aruckenb 2024_vienna   555 May 22 14:37 out.txt
+-rw-r--r-- 1 aruckenb 2024_vienna  4938 May 22 14:37 pipex.c
+-rw-r--r-- 1 aruckenb 2024_vienna  1071 May 20 11:21 pipex.h
