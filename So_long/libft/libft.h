@@ -19,7 +19,6 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <stdint.h>
-# include "get_next_line.h"
 
 /*Libft*/
 int		ft_isalpha(int chara);

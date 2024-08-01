@@ -81,7 +81,6 @@ char	**convert_to_indexes(char **number, int argc)
 	temp = ft_calloc(sizeof(char *), argc);
 	if (!temp)
 		return (free(indexes), free(temp), NULL);
-
 	while (i < argc - 1)
 	{
 		indexes[i] = ft_itoa(i + 1);
@@ -92,16 +91,28 @@ char	**convert_to_indexes(char **number, int argc)
 			return (reverse_free(temp, i), reverse_free(indexes, i), NULL);
 		i++;
 	}
-	sort_arrays(number, temp , i);
+	sort_arrays(number, temp, i);
 	sort_arrays(temp, indexes, i);
 	return (free_array(number), free_array(temp), indexes);
+}
+
+int	algorthim_start(char ***number, char ***stack_b)
+{
+	char	**indexes;
+
+	indexes = NULL;
+	sort_3(number, stack_b);
+	indexes = convert_to_indexes(*number, ft_last(*number));
+	if (!indexes)
+		return (free_array(*number), free_array(*stack_b), 1);
+	algorthim(indexes, *stack_b);
+	return (0);
 }
 
 int	main(int argc, char *argv[])
 {
 	char	**number;
 	char	**stack_b;
-	char	**indexes;
 
 	number = NULL;
 	stack_b = NULL;
@@ -123,9 +134,6 @@ int	main(int argc, char *argv[])
 		if (stack_a(argc, argv, &number, &stack_b) == 1)
 			return (1);
 	}
-	sort_3(&number, &stack_b);
-	indexes = convert_to_indexes(number, argc);
-	if (!indexes)
-		return (free_array(number), free_array(stack_b), 0);
-	algorthim(indexes, stack_b);
+	if (algorthim_start(&number, &stack_b) == 1)
+		return (1);
 }

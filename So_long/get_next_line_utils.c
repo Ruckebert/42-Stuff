@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <string.h>
+#include "so_long.h"
 
 size_t	ft_strlen1(const char *str)
 {
@@ -65,9 +64,9 @@ char	*ft_strjoin1(char const *s1, char const *s2)
 		len += ft_strlen1(s1);
 	if (s2)
 		len += ft_strlen1(s2);
-	new_string = malloc(len * sizeof(char));
+	new_string = malloc((len + 1) * sizeof(char));
 	if (new_string == NULL)
-		return (0);
+		return (NULL);
 	len = 0;
 	while (s1 && s1[len])
 		new_string[count++] = s1[len++];

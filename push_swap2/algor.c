@@ -89,26 +89,6 @@ void	final_sort(char ***number, char ***stack_b, int i)
 	}
 }
 
-/*int	lowest_number(char **number)
-{
-	int	small_temp;
-	int	size;
-	int i;
-
-	size = ft_last(number) - 1;
-	small_temp = 0;
-	i = 0;
-	while (i < size)
-	{
-		if ((number)[i + 1] == NULL)
-			break ;
-		if (ft_atoi((number)[small_temp]) > ft_atoi((number)[i + 1]))
-			small_temp = i + 1;
-		i++;
-	}
-	return (small_temp);
-}*/
-
 void	algorthim(char **number, char **stack_b)
 {
 	int	over_all_size;
@@ -118,7 +98,7 @@ void	algorthim(char **number, char **stack_b)
 
 	over_all_size = 0;
 	chunk_size = 0;
-	chunk1 = 0; 
+	chunk1 = 0;
 	chunk2 = 20;
 	if (ft_last(number) <= 10)
 		over_all_size = 1;

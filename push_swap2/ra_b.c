@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+void	swap(char ***number)
+{
+	swap_first(*number);
+	write(1, "sa\n", 3);
+}
+
 int	ra_b_loop(char **example, char **temp_array, int i, int len)
 {
 	while (i < len)

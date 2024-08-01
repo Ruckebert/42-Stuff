@@ -37,12 +37,6 @@ void	top_to_bottom(char ***number, char ***stack_b, int i)
 		write(1, "rb\n", 3);
 }
 
-void	swap(char ***number)
-{
-	swap_first(*number);
-	write(1, "sa\n", 3);
-}
-
 void	reverse(char ***number, char ***stack_b)
 {
 	rra_b(number, stack_b);

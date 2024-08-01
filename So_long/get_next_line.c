@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 void	clear_free(char **point)
 {
@@ -41,6 +41,8 @@ static char	*fill_buffer(int fd, char *red_buf)
 		line[reader] = '\0';
 		if (red_buf == NULL)
 			red_buf = ft_strdup1("");
+		if (!red_buf)
+			return (clear_free(&line), clear_free(&red_buf), NULL);
 		temp = ft_strjoin1(red_buf, line);
 		clear_free(&red_buf);
 		if (temp == NULL)
@@ -50,7 +52,7 @@ static char	*fill_buffer(int fd, char *red_buf)
 	return (clear_free(&line), red_buf);
 }
 
-static char	*get_line(char *line)
+static char	*get_line(char *line, t_vars *vars)
 {
 	int		count;
 	char	*temp;
@@ -64,7 +66,10 @@ static char	*get_line(char *line)
 		return (NULL);
 	temp = malloc(count + 1);
 	if (temp == NULL)
+	{
+		vars->error = 1;
 		return (NULL);
+	}
 	temp[count] = '\0';
 	while (--count >= 0)
 		temp[count] = line[count];
@@ -98,23 +103,33 @@ static char	*line_clear(char *line)
 	return (temp);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, t_vars *vars)
 {
 	char		*next_line;
 	static char	*red_buf;
 
+
 	next_line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (clear_free(&red_buf), NULL);
 	red_buf = fill_buffer(fd, red_buf);
 	if (red_buf == NULL)
+	{
+		vars->error = 1;
 		return (clear_free(&red_buf), NULL);
-	next_line = get_line(red_buf);
+	}
+	next_line = get_line(red_buf, vars);
 	if (next_line == NULL || next_line[0] == '\0')
+	{
+		// vars->error = 1;
 		return (clear_free(&red_buf), clear_free(&next_line), NULL);
+	}
 	red_buf = line_clear(red_buf);
 	if (red_buf == NULL)
+	{
+		vars->error = 1;
 		return (clear_free(&next_line), clear_free(&red_buf), NULL);
+	}
 	return (next_line);
 }
 

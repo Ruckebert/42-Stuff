@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-char    **get_map_char_len(int map_size)
+char    **get_map_char_len(int map_size, char *str, t_vars *vars)
 {
 	int		fd;
     int     i;
@@ -23,27 +23,29 @@ char    **get_map_char_len(int map_size)
     map = ft_calloc(sizeof(char *), map_size);
     if (!map)
         return (NULL);
-	fd = open("Map.ber", O_RDWR);
+	fd = open(str, O_RDWR);
 	if (fd == -1)
 		return (free(map), NULL);
-    line = get_next_line(fd);
+    line = get_next_line(fd, vars);
+    if (!line)
+        return (free(map), close(fd), NULL);
 	while (line)
 	{
 		map[i] = ft_calloc(sizeof(char), ft_strlen(line) + 1);
         if (!map[i])
         {
-            while (i >= 0)
-            {
+            while (--i >= 0)
                 free(map[i]);
-                i--;
-            }
-            return (close(fd), free(map), NULL);
+            return (free(map), free(line), get_next_line(-1, NULL), close(fd), NULL);
         }
         ft_strcpy(map[i], line);
         i++;
 		free(line);
-        line = get_next_line(fd);
+        line = get_next_line(fd, vars);
+        if (!line && vars->error == 1)
+            return (free_array(map), close(fd), NULL);
 	}
+    free(line);
 	close(fd);
     return (map);
 }

@@ -18,12 +18,13 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <string.h>
+# include "so_long.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 20000000000
 # endif
 
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, t_vars *vars);
 size_t	ft_strlen1(const char *str);
 char	*ft_strchr1(const char *str, int c);
 char	*ft_strjoin1(char const *s1, char const *s2);

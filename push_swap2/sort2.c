@@ -75,7 +75,8 @@ void	sort_placement(char ***stack_b, char ***number, int size)
 		push_write(number, stack_b, 0);
 		top_to_bottom(stack_b, number, 0);
 	}
-	else if (ft_last(*stack_b) > 1 && ft_atoi((*number)[0]) < ft_atoi((*stack_b)[0]))
+	else if (ft_last(*stack_b) > 1
+		&& ft_atoi((*number)[0]) < ft_atoi((*stack_b)[0]))
 	{
 		push_write(number, stack_b, 0);
 		swap_first(*stack_b);

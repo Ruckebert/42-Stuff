@@ -51,6 +51,7 @@ int		ft_last(char **str);
 void	reverse_free(char **temp_array, int i);
 void	top_to_bottom(char ***number, char ***stack_b, int i);
 int		lowest_number(char **number);
+void	swap(char ***number);
 
 /*Write*/
 void	push_write(char ***stack_b, char ***number, int i);
