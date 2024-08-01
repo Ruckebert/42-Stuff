@@ -3,39 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aruckenb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:48:51 by aruckenb          #+#    #+#             */
-/*   Updated: 2024/07/24 10:48:52 by aruckenb         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:28:09 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "libft/libft.h"
-#include "libft/get_next_line.h"
+#include "so_long.h"
 
-int	get_map()
+void	free_array(char **example)
 {
-	int		fd;
-    int     count = 0;
-	char	*line;
+	int	i;
 
-    line = NULL;
-	fd = open("Map.ber", O_RDWR);
-	if (fd == -1)
-		return (-1);
-
-	while ((line = get_next_line(fd)) != NULL)
+	i = 0;
+	if (example)
 	{
-		printf("[%s]\n", line);
-        count++;
-		free(line);
+		while (example[i])
+		{
+			free(example[i]);
+			i++;
+		}
+		free(example);
 	}
-	close(fd);
+}
 
-    return (count);
-}*/
+int close_win(int keycode, t_vars *vars)
+{
+    if (keycode == 65307)
+    {
+        mlx_destroy_window(vars->mlx, vars->win);
+        free_array(vars->map);
+		mlx_destroy_display(vars->mlx);
+        free(vars->mlx);
+        exit(0);
+    }
+    return (0);
+}
+
+int close_button(t_vars *vars)
+{   
+    mlx_destroy_window(vars->mlx, vars->win);
+    free_array(vars->map);
+	mlx_destroy_display(vars->mlx);
+    free(vars->mlx);
+    exit (0);
+}
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	char	*start;
+
+	start = dest;
+	while (*src != '\0')
+	{
+		*dest = *src;
+		src++;
+		dest++;
+	}
+	*dest = *src;
+	return (start);
+}
+
+void    exit_fail(t_vars *vars)
+{
+    free_array(vars->map);
+	mlx_destroy_window(vars->mlx, vars->win);
+	mlx_destroy_display(vars->mlx);
+	write(2, "Error\n", 6);
+    exit(1);
+}

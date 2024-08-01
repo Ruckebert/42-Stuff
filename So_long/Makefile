@@ -1,13 +1,13 @@
 
 NAME = so_long
 
-SOURCE = so_long.c
+SOURCE = main.c map_chec.c map_fun.c player_move.c utils.c get_next_line.c get_next_line_utils.c floodfill_con.c
 
 OBJECTS = $(SOURCE:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
-COMP = cc -g
+COMP = cc -g -lmlx -lX11 -lXext -lm
 
 RM = rm -f
 

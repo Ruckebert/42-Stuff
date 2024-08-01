@@ -23,13 +23,13 @@ char    **get_map_char_len(int map_size, char *str, t_vars *vars)
     map = ft_calloc(sizeof(char *), map_size);
     if (!map)
         return (NULL);
-	fd = open(str, O_RDWR);
+    fd = open(str, O_RDWR);
 	if (fd == -1)
 		return (free(map), NULL);
     line = get_next_line(fd, vars);
     if (!line)
         return (free(map), close(fd), NULL);
-	while (line)
+    while (line)
 	{
 		map[i] = ft_calloc(sizeof(char), ft_strlen(line) + 1);
         if (!map[i])
@@ -129,10 +129,7 @@ int print_consumable(char **map, t_vars *vars)
         while (map[j][i])
         {
             if (map[j][i] == 'C')
-            {
                 mlx_put_image_to_window(vars->mlx, vars->win, vars->images, position, layer);
-                vars->max_con++;
-            }
             position += 36;
             i++;
         }

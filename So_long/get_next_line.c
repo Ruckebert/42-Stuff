@@ -41,8 +41,8 @@ static char	*fill_buffer(int fd, char *red_buf)
 		line[reader] = '\0';
 		if (red_buf == NULL)
 			red_buf = ft_strdup1("");
-		if (!red_buf)
-			return (clear_free(&line), clear_free(&red_buf), NULL);
+		/*if (!red_buf)
+			return (clear_free(&line), clear_free(&red_buf), NULL);*/
 		temp = ft_strjoin1(red_buf, line);
 		clear_free(&red_buf);
 		if (temp == NULL)
@@ -120,10 +120,7 @@ char	*get_next_line(int fd, t_vars *vars)
 	}
 	next_line = get_line(red_buf, vars);
 	if (next_line == NULL || next_line[0] == '\0')
-	{
-		// vars->error = 1;
 		return (clear_free(&red_buf), clear_free(&next_line), NULL);
-	}
 	red_buf = line_clear(red_buf);
 	if (red_buf == NULL)
 	{
