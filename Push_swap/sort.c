@@ -25,7 +25,7 @@ void	swap_and_back(char ***number, char ***stack_b)
 	swap_first(*number);
 	write(1, "sa\n", 3);
 	ra_b(number, stack_b);
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 }
 
 void	top_to_bottom(char ***number, char ***stack_b, int i)
