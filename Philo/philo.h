@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:46:21 by aruckenb          #+#    #+#             */
-/*   Updated: 2024/09/19 13:14:46 by aruckenb         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:43:58 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,33 @@ typedef struct s_data t_data;
 typedef struct s_pedo
 {
 	t_data *data;
+	
+	/*Philo ID and Death Start*/
 	int philo_id;
 	long long start_of_death;
+	int task_done;
 	
-	/*Maybe Move this down to data*/
-	int	fork_equip;
+	/*Activites*/
 	int	fin_eating;
 	int thinking;
 	int	meals_eaten;
 	int	alive_or_dead;
 
-	pthread_mutex_t lock; 
-	pthread_mutex_t fork; 
-
+	/*Forks*/
+	pthread_mutex_t l_fork; 
+	pthread_mutex_t r_fork; 
+	
 }	t_pedo;
 
 typedef struct s_data
 {
 	t_pedo 		*philo;
+
+	/*Philo Data*/
 	int 		num_philo;
 	long long	time_stamp;
 	int			full_philos;
+	int			running;
 
 	/*Philo times*/
 	long long	death_time;
@@ -53,12 +59,36 @@ typedef struct s_data
 	int			must_eat_time;
 
 	pthread_t	*thread_id;
+	pthread_mutex_t exit; 
+	pthread_mutex_t print_lock;
+	pthread_mutex_t print_lock_thinking;
+	pthread_mutex_t dead_or_alive_lock;
+	pthread_mutex_t full_lock;
 	
 }	t_data;
 
+/*Time Functions*/
+void		time_start(t_data *data, long long  *time_stamp);
+long long	time_current(t_data *data);
+void		time_current_death(t_pedo *philo, t_data *data);
+void		task_times(t_data *data, char *argv[], int argc);
 
 /*Utils Functions*/
+char	*ft_itoa(int n);
+size_t	ft_strlen(const char *str);
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
+void	write_message(t_data *data, t_pedo *philo, char *message, int i);
+void	exit_program(t_data *data, t_pedo *philo);
+void	philo_dead(t_data *data, t_pedo *philo);
+void 	better_usleep(t_data *data, t_pedo *philo, int time, int lock_or_fork);
+void	dead_or_alive(t_pedo *philo, t_data *data, int lock_or_fork);
+
+/*Philo Activites*/
+void	philo_full(t_data *data, t_pedo *philo);
+void	eating(t_data *data, t_pedo *philo, int even_or_odd);
+void	philo_sleep(t_data *data, t_pedo *philo);
+void	thinking(t_data *data, t_pedo *philo, int time);
+
 
 #endif
