@@ -6,6 +6,7 @@
 		"string_view": "c",
 		"ranges": "c",
 		"philo.h": "c",
-		"random": "c"
+		"random": "c",
+		"system_error": "c"
 	}
 }

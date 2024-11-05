@@ -1,27 +1,25 @@
 
-NAME = philosphers
+NAME = philo
 
-SOURCE = ft_atoi.c ft_bzero.c main.c
+SOURCE = main.c ft_itoa.c mutex_thread_creation.c philo_activites.c rountine_tasks.c time.c utils.c utils2.c utils3.c
 
 OBJECTS = $(SOURCE:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -pthread #-fsanitize=thread,undefined
 
-COMP = cc -lmlx -lX11 -lXext -lm
+COMP = cc
 
 RM = rm -f
 
 all: ${NAME}
 
 .c.o:
-	-cc ${CFLAGS} -c $< -o ${<:.c=.o} 
+	${COMP} ${CFLAGS} -c $< -o $@ 
 
-${NAME}: ${OBJECTS} 
-		${MAKE} -C ./libft --no-print-directory
-		${COMP} ${CFLAGS} ${OBJECTS} ./libft/libft.a -o ${NAME}
+${NAME}: ${OBJECTS}
+		${COMP} ${CFLAGS} ${OBJECTS} -o ${NAME}
 
 clean: 
-	${MAKE} -C ./libft --no-print-directory fclean
 	${RM} ${OBJECTS}
 
 fclean: clean
