@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:44:48 by aruckenb          #+#    #+#             */
-/*   Updated: 2024/11/05 13:35:47 by aruckenb         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:47:27 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	eating(t_data *data, t_pedo *philo, int even_or_odd)
 	pthread_mutex_unlock(&data->print_lock);
 	if (dead_or_alive(philo, data, even_or_odd) == 1)
 		return (1);
-	time_current_death(philo, data);
 	if (better_usleep(data, philo, data->eat_time, even_or_odd) == 1)
 		return (1);
+	time_current_death(philo, data);
 	philo->fin_eating = 1;
 	philo->meals_eaten++;
 	return (0);

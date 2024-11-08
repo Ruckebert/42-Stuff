@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:40:56 by aruckenb          #+#    #+#             */
-/*   Updated: 2024/11/05 15:25:38 by aruckenb         ###   ########.fr       */
+/*   Updated: 2024/11/07 13:31:45 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ char	*write_together(char *time_str, char *philo_str,
 	return (combined_str);
 }
 
+int	free_write(char *var1, char *var2, char *var3)
+{
+	free(var1);
+	free(var2);
+	free(var3);
+	return (1);
+}
+
 int	write_message(t_data *data, t_pedo *philo, char *message)
 {
 	char	*time_str;
@@ -52,26 +60,14 @@ int	write_message(t_data *data, t_pedo *philo, char *message)
 		return (free(time_str), free(philo_id_str), 1);
 	combined_message = write_together(time_str, philo_id_str,
 			combined_message, message);
+	pthread_mutex_lock(&data->full_lock);
+	if (data->dead_philo == 1)
+		return (pthread_mutex_unlock(&data->full_lock),
+			free_write(time_str, philo_id_str, combined_message));
+	pthread_mutex_unlock(&data->full_lock);
 	write(1, combined_message, ft_strlen(time_str)
 		+ 1 + ft_strlen(philo_id_str) + 1 + ft_strlen(message) + 1);
-	free(time_str);
-	free(philo_id_str);
-	free(combined_message);
-	return (0);
-}
-
-void	philo_assign(t_pedo *philo, t_data *data)
-{
-	int	i;
-
-	i = -1;
-	while (++i < data->num_philo)
-	{
-		ft_bzero(&philo[i], sizeof(t_pedo));
-		philo[i].philo_id = i + 1;
-		philo[i].data = data;
-		philo[i].start_of_death = 0;
-	}
+	return (free(time_str), free(philo_id_str), free(combined_message), 0);
 }
 
 int	dead_or_alive(t_pedo *philo, t_data *data, int lock_or_fork)

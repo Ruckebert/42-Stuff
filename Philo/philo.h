@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:46:21 by aruckenb          #+#    #+#             */
-/*   Updated: 2024/11/05 15:25:14 by aruckenb         ###   ########.fr       */
+/*   Updated: 2024/11/06 09:18:49 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_data
 	int				num_philo;
 	long long		time_stamp;
 	int				full_philos;
+	int				dead_philo;
 
 	/*Philo times*/
 	long long		death_time;

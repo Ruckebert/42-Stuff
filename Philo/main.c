@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:37:21 by aruckenb          #+#    #+#             */
-/*   Updated: 2024/11/05 15:25:24 by aruckenb         ###   ########.fr       */
+/*   Updated: 2024/11/06 09:19:15 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	setter(t_data *data, t_pedo *philo)
 int	main(int argc, char *argv[])
 {
 	t_data	*data;
-	t_pedo	*philo;
+	t_pedo	*philo;	
 
 	if (argc != 5 && argc != 6)
 		return (write(2, "Error: Not the right Arguments!\n", 33));

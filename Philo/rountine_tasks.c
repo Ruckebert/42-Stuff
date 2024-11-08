@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:42:24 by aruckenb          #+#    #+#             */
-/*   Updated: 2024/11/05 15:26:17 by aruckenb         ###   ########.fr       */
+/*   Updated: 2024/11/07 13:24:16 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,10 @@ int	even_start(t_data *data, t_pedo *philo)
 		if (thinking(data, philo, data->think_time) == 1)
 			return (1);
 	}
+	pthread_mutex_lock(&data->print_lock);
 	if (data->eat_time == data->sleep_time)
 		data->think_time = 0;
+	pthread_mutex_unlock(&data->print_lock);
 	return (0);
 }
 
@@ -118,7 +120,9 @@ int	odd_start(t_data *data, t_pedo *philo)
 		if (thinking(data, philo, data->think_time) == 1)
 			return (1);
 	}
+	pthread_mutex_lock(&data->exit);
 	if (data->eat_time == data->sleep_time)
 		data->think_time = data->think_time;
+	pthread_mutex_unlock(&data->exit);
 	return (0);
 }
