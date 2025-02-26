@@ -5,7 +5,7 @@ SOURCE = phonebook.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 
-C++FLAGS = -Wall -Werror -Wextra -std=c++98
+C++FLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=undefined
 
 C++ = c++
 
