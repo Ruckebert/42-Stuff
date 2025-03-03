@@ -1,11 +1,11 @@
 
-NAME = phonebook
+NAME = Brainzzzz
 
-SOURCE = PhoneBook.cpp Search.cpp Adding.cpp
+SOURCE = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 
-C++FLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=undefined
+C++FLAGS = -Wall -Werror -Wextra -std=c++98
 
 C++ = c++
 

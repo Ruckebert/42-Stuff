@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 14:25:33 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/02/27 10:14:11 by aruckenb         ###   ########.fr       */
+/*   Created: 2025/02/27 15:19:03 by aruckenb          #+#    #+#             */
+/*   Updated: 2025/03/03 14:44:46 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Zombie.hpp"
 
-int main(int argc, char **argv) 
+Zombie* newZombie (std::string name)
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" ;
-	else
-	{
-		int i = 1;
-		while (i < argc)
-		{
-			int j = 0;
-			while (argv[i][j])
-			{
-				std::cout << (char)std::toupper(argv[i][j]);
-				j++;
-			}
-			i++;
-		}
-	}
-	std::cout << std::endl;
+	Zombie *New;
+	
+	New = new Zombie(name);
+	New->ZombieNameSet(name);
+
+	return (New);
 }

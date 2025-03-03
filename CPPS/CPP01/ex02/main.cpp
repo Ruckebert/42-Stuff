@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 14:25:33 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/02/27 10:14:11 by aruckenb         ###   ########.fr       */
+/*   Created: 2025/03/03 14:57:08 by aruckenb          #+#    #+#             */
+/*   Updated: 2025/03/03 14:57:20 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
-int main(int argc, char **argv) 
+int main()
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" ;
-	else
-	{
-		int i = 1;
-		while (i < argc)
-		{
-			int j = 0;
-			while (argv[i][j])
-			{
-				std::cout << (char)std::toupper(argv[i][j]);
-				j++;
-			}
-			i++;
-		}
-	}
-	std::cout << std::endl;
+
+
+	
 }

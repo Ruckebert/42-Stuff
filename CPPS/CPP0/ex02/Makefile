@@ -1,7 +1,7 @@
 
-NAME = phonebook
+NAME = testing
 
-SOURCE = PhoneBook.cpp Search.cpp Adding.cpp
+SOURCE = Account.cpp tests.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

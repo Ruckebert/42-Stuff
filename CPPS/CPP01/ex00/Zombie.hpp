@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 14:25:33 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/02/27 10:14:11 by aruckenb         ###   ########.fr       */
+/*   Created: 2025/02/27 15:18:25 by aruckenb          #+#    #+#             */
+/*   Updated: 2025/03/03 12:28:07 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main(int argc, char **argv) 
+#include <iostream>
+#include <string>
+#include <new>
+
+class Zombie
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" ;
-	else
-	{
-		int i = 1;
-		while (i < argc)
-		{
-			int j = 0;
-			while (argv[i][j])
-			{
-				std::cout << (char)std::toupper(argv[i][j]);
-				j++;
-			}
-			i++;
-		}
-	}
-	std::cout << std::endl;
-}
+	private:
+	std::string name;
+
+	public:
+	Zombie(std::string name) {}
+	~Zombie() {}
+
+	// Setter&Getter
+	void ZombieNameSet(std::string &input) {name = input;}
+	std::string ZombieNameGet(void) {return (name);}
+	
+	void announce(void);
+
+
+} ;
+
+
+Zombie* newZombie (std::string name);
+void randomChump(std::string name);
+
+#endif
