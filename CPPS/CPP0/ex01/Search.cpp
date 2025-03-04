@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:34:23 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/03 11:54:57 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:09:20 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ void	CharCheckAndPrint(std::string type)
 	}
 	else
 	{
-		while (i < (10 - type.length()))
-		{
-			std::cout << " ";
-			i++;
-		}
+		std::cout << std::setw((10 - type.length()) + 1) << std::right;
 		i = 0;
 		while (i <= type.length())
 		{
@@ -73,7 +69,7 @@ void Search(PhoneBook &book, int i)
 	int j = 0;
 	while (j < i)
 	{
-		DisplaySearch(book.contacts[j], j);
+		DisplaySearch(*book.GetContact(j), j);
 		j++;
 	}
 	if (j == 0)
@@ -85,7 +81,11 @@ void Search(PhoneBook &book, int i)
 		std::cout << "Please enter the contact number you want to display!" << std::endl;
 		std::cout << "Input: " ;
 		if (std::cin.peek() == '\n')
+		{		
 			std::cin.ignore();
+			std::cout << "Invalid  Input!" << std::endl;
+			return ;
+		}
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 		{
@@ -102,7 +102,7 @@ void Search(PhoneBook &book, int i)
 		{
 			std::cout << std::endl;
 			j = std::stoi(input);
-			DisplayAd(book.contacts[j - 1], j - 1);
+			DisplayAd(*book.GetContact(j - 1), j - 1);
 		}			
 	}
 

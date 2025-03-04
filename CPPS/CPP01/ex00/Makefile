@@ -13,7 +13,7 @@ RM = rm -f
 
 all: ${NAME}
 
-.c.o:
+.cpp.o:
 	${C++} ${C++FLAGS} -c $< -o $@ 
 
 ${NAME}: ${OBJECTS}

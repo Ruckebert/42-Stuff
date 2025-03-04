@@ -1,5 +1,5 @@
 
-NAME = Brainzzzz
+NAME = violence
 
 SOURCE = main.cpp newZombie.cpp zombieHorde.cpp Zombie.cpp
 

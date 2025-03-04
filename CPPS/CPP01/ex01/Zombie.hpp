@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:18:25 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/03 12:28:07 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/04 12:43:25 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class Zombie
 	std::string name;
 
 	public:
-	Zombie(std::string name) {}
+	Zombie(): name("Unnamed") {}
+	Zombie(std::string name): name(name) {}
 	~Zombie() {}
 
 	// Setter&Getter
@@ -37,6 +38,6 @@ class Zombie
 
 
 Zombie* newZombie (std::string name);
-void randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif

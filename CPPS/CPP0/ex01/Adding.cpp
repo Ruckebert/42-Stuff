@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:32:08 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/03 16:01:13 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:08:53 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ void	AddingStr(Contact &contact, int i)
 			std::cout << "Please input their darkest secrets below" << std::endl;
 		std::cout << "Input: " ;
 		if (std::cin.peek() == '\n')
+		{
 			std::cin.ignore();
+			std::cout << std::endl;
+			std::cout << "Invalid Input!! Try Again" << std::endl;
+			continue ;
+		}
 		std::getline(std::cin, type);
 		if (std::cin.eof())
 		{
@@ -42,14 +47,13 @@ void	AddingStr(Contact &contact, int i)
 		int j = 0;
 		while (type[j])
 		{
-			if (!isascii(int(type[j])))
+			if (!isascii(int(type[j])) || int(type[j]) == 9)
 			{
 				invalid = true;
 				break ;
 			}
 			j++;
 		}
-
 		if (invalid == false)
 		{
 			if (i == 1)
@@ -63,6 +67,8 @@ void	AddingStr(Contact &contact, int i)
 			std::cout << std::endl;
 			return ;
 		}
+		else if (invalid == true)
+			std::cout << "Invalid Input!! Try Again" << std::endl;
 		std::cout << std::endl;
 	}
 }
@@ -76,7 +82,12 @@ void	AddingPhone(Contact &contact)
 		std::cout << "Please input the phone number below" << std::endl;
 		std::cout << "Input: " ;
 		if (std::cin.peek() == '\n')
+		{
 			std::cin.ignore();
+			std::cout << std::endl;
+			std::cout << "Invalid Input!! Try Again" << std::endl;
+			continue ;
+		}
 		std::getline(std::cin, check);
 		if (std::cin.eof())
 		{
@@ -143,15 +154,15 @@ void Add(PhoneBook &book, int &i, int &k)
 		std::cout << "Phonebook full!!" << std::endl;
 		std::cout << "Replacing Oldest Element!" << std::endl;
 		i = k;
-		Adding(book.contacts[i]);
-		DisplayAd(book.contacts[i], i);
+		Adding(*book.GetContact(i));
+		DisplayAd(*book.GetContact(i), i);
 		i = 8;
 		k++;
 	}
 	else
 	{
-		Adding(book.contacts[i]);
-		DisplayAd(book.contacts[i], i);
+		Adding(*book.GetContact(i));
+		DisplayAd(*book.GetContact(i), i);
 		i++;
 	}
 	

@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:31:06 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/02/27 13:35:16 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:07:22 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
+# include <ios>
 
 class Contact
 {
@@ -48,12 +50,12 @@ class Contact
 class PhoneBook
 {
 	private:
+	Contact contacts[8];
 	
 	public:
 	PhoneBook() {}
 	~PhoneBook() {}
-	Contact contacts[8];
-
+	Contact *GetContact(int index) {return (&contacts[index]);}
 } ;
 
 
