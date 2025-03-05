@@ -1,7 +1,7 @@
 
-NAME = violence
+NAME = filereader
 
-SOURCE = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SOURCE = main.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

@@ -1,7 +1,7 @@
 
 NAME = phonebook
 
-SOURCE = PhoneBook.cpp Search.cpp Adding.cpp
+SOURCE = main.cpp PhoneBook.cpp Search.cpp Adding.cpp ContactFunct.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

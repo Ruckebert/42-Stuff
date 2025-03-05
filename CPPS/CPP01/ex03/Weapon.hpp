@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:51:22 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/04 15:04:07 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:19:15 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ class Weapon
 	std::string type;
 
 	public:
-	Weapon(std::string weapon) {type = weapon;}
-	~Weapon() {}
+	Weapon(std::string weapon);
+	~Weapon();
 
-	// Setter&Getter
-	void setType(std::string input) {type = input;}
-	std::string getType(void) {return (type);}
+	void setType(std::string input);
+	std::string getType(void);
 } ;
 
 #endif

@@ -6,14 +6,12 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:51:08 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/04 15:00:16 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:30:07 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-
 
 int main()
 {
