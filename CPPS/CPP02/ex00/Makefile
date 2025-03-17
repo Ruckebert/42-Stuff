@@ -1,7 +1,7 @@
 
-NAME = testing
+NAME = harlFilter
 
-SOURCE = Account.cpp tests.cpp
+SOURCE = main.cpp Harl.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

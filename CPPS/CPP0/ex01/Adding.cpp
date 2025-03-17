@@ -6,11 +6,12 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:32:08 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/04 14:08:53 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/17 10:29:11 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include <boost/algorithm/string.hpp>
 
 void	AddingStr(Contact &contact, int i)
 {
@@ -41,13 +42,20 @@ void	AddingStr(Contact &contact, int i)
 			std::cerr << "\nError Input!!" << std::endl;
 			exit (1) ;
 		}
-		if (type.empty())
-			std::cout << "Invalid Input!! Try Again" << std::endl;
+		
+		boost::trim(type);
 
+		if (type.empty())
+		{
+			std::cout << "Invalid Input!! Try Again" << std::endl;
+			std::cout << std::endl;
+			continue ;
+		}
+		//Checking White Spaces
 		int j = 0;
 		while (type[j])
 		{
-			if (!isascii(int(type[j])) || int(type[j]) == 9)
+			if (!isascii(int(type[j])) || (int(type[j]) >= 0 && int(type[j]) <= 31))
 			{
 				invalid = true;
 				break ;
@@ -115,7 +123,7 @@ void	AddingPhone(Contact &contact)
 				std::cout << "Invalid Phone Number!! Try Again" << std::endl;
 			else
 			{
-				long type = std::stol(check);
+				long type = std::atol(check.c_str());
 				contact.PhoneNumberSetter(type);
 				std::cout << std::endl;
 				return ;

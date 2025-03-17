@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:34:23 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/04 14:09:20 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:17:47 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	CharCheckAndPrint(std::string type)
 	{
 		std::cout << std::setw((10 - type.length()) + 1) << std::right;
 		i = 0;
-		while (i <= type.length())
+		while ((size_t)i <= type.length())
 		{
 			std::cout << type[i];
 			i++;
@@ -58,8 +58,8 @@ int	ValidInput(std::string input, int total)
 	}
 	if (input.empty())
 		return (1);
-	i = std::stoi(input);
-	if (i > total || i < 0)
+	i = std::atoi(input.c_str());
+	if (i > total || i < 0 || i == 0)
 		return (1);
 	return (0);
 }
@@ -92,7 +92,7 @@ void Search(PhoneBook &book, int i)
 			std::cerr << "\nError Input!!" << std::endl;
 			exit (1) ;
 		}
-
+		
 		if (ValidInput(input, i) == 1)
 		{
 			std::cout << std::endl;
@@ -101,7 +101,7 @@ void Search(PhoneBook &book, int i)
 		else
 		{
 			std::cout << std::endl;
-			j = std::stoi(input);
+			j = std::atoi(input.c_str());
 			DisplayAd(*book.GetContact(j - 1), j - 1);
 		}			
 	}

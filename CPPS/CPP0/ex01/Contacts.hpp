@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:32:46 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/05 10:38:17 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:04:45 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Contact
 	std::string DarkestSecret ;
 	
 	public:
-	Contact() {}
-	~Contact() {}
+	Contact();
+	~Contact();
 
 	//Setters
 	void FirstNameSetter(std::string &input);

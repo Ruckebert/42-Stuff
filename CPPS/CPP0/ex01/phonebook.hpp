@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:31:06 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/05 10:37:49 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:17:15 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 #include "Contacts.hpp"
+#include <cstdlib>
 
 class PhoneBook
 {
@@ -21,8 +22,8 @@ class PhoneBook
 	Contact contacts[8];
 	
 	public:
-	PhoneBook() {}
-	~PhoneBook() {}
+	PhoneBook();
+	~PhoneBook();
 
 	Contact *GetContact(int index);
 } ;

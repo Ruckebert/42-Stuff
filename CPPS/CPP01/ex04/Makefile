@@ -5,19 +5,21 @@ SOURCE = main.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 
-C++FLAGS = -Wall -Werror -Wextra -std=c++98
+OBJECTS = $(SOURCE:.cpp=.o)
 
-C++ = c++
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+
+CXX = c++
 
 RM = rm -f
 
 all: ${NAME}
 
 .c.o:
-	${C++} ${C++FLAGS} -c $< -o $@ 
+	${CXX} ${CXXFLAGS} -c $< -o $@ 
 
 ${NAME}: ${OBJECTS}
-		${C++} ${C++FLAGS} ${OBJECTS} -o ${NAME}
+		${CXX} ${CXXFLAGS} ${OBJECTS} -o ${NAME}
 
 clean: 
 	${RM} ${OBJECTS}

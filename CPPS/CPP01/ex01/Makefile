@@ -5,19 +5,19 @@ SOURCE = main.cpp newZombie.cpp zombieHorde.cpp Zombie.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 
-C++FLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C++ = c++
+CXX = c++
 
 RM = rm -f
 
 all: ${NAME}
 
 .c.o:
-	${C++} ${C++FLAGS} -c $< -o $@ 
+	${CXX} ${CXXFLAGS} -c $< -o $@ 
 
 ${NAME}: ${OBJECTS}
-		${C++} ${C++FLAGS} ${OBJECTS} -o ${NAME}
+		${CXX} ${CXXFLAGS} ${OBJECTS} -o ${NAME}
 
 clean: 
 	${RM} ${OBJECTS}

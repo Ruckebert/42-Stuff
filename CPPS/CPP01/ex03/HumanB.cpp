@@ -6,13 +6,13 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:06:20 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/05 11:28:03 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/17 11:04:56 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string str): name(str), weaponType(nullptr)
+HumanB::HumanB(std::string str): name(str)
 {}
 HumanB::~HumanB() 
 {}

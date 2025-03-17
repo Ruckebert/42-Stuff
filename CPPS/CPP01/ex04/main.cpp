@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:30:43 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/05 12:35:02 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/17 11:07:27 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 	std::ifstream fileRead(argv[1]);
 	text = argv[1];
 	text = text.append(".replace");
-	std::ofstream fileWrite(text);
+	std::ofstream fileWrite(text.c_str());
 	
 	while (getline(fileRead, text))
 	{
@@ -52,13 +52,13 @@ int main(int argc, char **argv)
 					else
 						break ;
 				}
-				if (first.length() == j)
+				if (first.length() == (unsigned long)j)
 				{
 					fileWrite << second;
 					i = k;
 				}
 			}
-			if (text.length() == i)
+			if (text.length() == (unsigned long)i)
 				break ;
 			fileWrite << text[i];
 			i++;

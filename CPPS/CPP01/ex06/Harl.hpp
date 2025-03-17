@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 10:35:31 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/07 10:03:50 by aruckenb         ###   ########.fr       */
+/*   Created: 2025/03/05 12:38:08 by aruckenb          #+#    #+#             */
+/*   Updated: 2025/03/05 12:41:21 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
+#include <iostream>
 
-Contact *PhoneBook::GetContact(int index) {return (&contacts[index]);}
+class Harl
+{
+	private:
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
 
-PhoneBook::PhoneBook() {}
+	public:
+	Harl();
+	~Harl();
 
-PhoneBook::~PhoneBook() {}
+	void complain(std::string level);
+} ;
+
+#endif

@@ -6,11 +6,16 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:30:39 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/05 10:36:13 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/07 10:04:37 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contacts.hpp"
+
+Contact::Contact() {}
+
+Contact::~Contact() {}
+
 
 //Setters
 void Contact::FirstNameSetter(std::string &input){FirstName = input;}
