@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:14:35 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/17 11:16:46 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:56:34 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ class Fixed
 {
 	private:
 	int	FixNumPoint;
-	static const int eight = 8;
+	static const int FractBits = 8;
 
 	public:
-	Harl();
-	~Harl();
+	Fixed();
+	~Fixed();
+	Fixed (const Fixed& type);
+	Fixed &operator=(const Fixed& type);
 
-	int getRawBits(void);
+	int getRawBits(void) const;
 	void setRawBits(int const raw);
 } ;
 
