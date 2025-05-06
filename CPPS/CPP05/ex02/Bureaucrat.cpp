@@ -6,11 +6,12 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 12:55:15 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/05/06 13:45:08 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:04:36 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(): name("No_Name")
 {
@@ -99,6 +100,18 @@ void Bureaucrat::decrement() //Decrement Bureaucrat
 	catch (const GradeTooLowException& e)
 	{
 		std::cout << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::signForm(AForm& type1)
+{
+	try 
+	{
+		type1.beSigned(*this);	
+	}
+	catch (const AForm::FormGradeTooLowException& e)
+	{
+		std::cout << type1.getName() << " couldn't sign " << this->name << " because Grade is too low" << std::endl;
 	}
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 11:49:42 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/05/06 15:32:01 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:31:21 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include <exception>
 
-class Form
+class AForm
 {
 	private:
 	const std::string name;
@@ -26,11 +26,11 @@ class Form
 	const unsigned int exeGrade;
 
 	public:
-	Form();
-	Form(std::string name, unsigned int grade1, unsigned int grade2);
-	Form(const Form& type);
-	Form &operator=(const Form& type);
-	~Form();
+	AForm();
+	AForm(std::string name, unsigned int grade1, unsigned int grade2);
+	AForm(const AForm& type);
+	AForm &operator=(const AForm& type);
+	virtual ~AForm();
 
 	class FormGradeTooHighException: public std::exception
 	{
@@ -56,8 +56,10 @@ class Form
 	unsigned int getExeGrade() const;
 
 	void beSigned(class Bureaucrat &type1);
+
+	virtual void execute(class Bureaucrat const &executor) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& type);
+std::ostream& operator<<(std::ostream& os, const AForm& type);
 
 #endif
