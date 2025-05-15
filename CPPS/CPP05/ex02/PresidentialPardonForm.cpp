@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm copy.cpp                    :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:56:53 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/05/06 16:03:50 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/05/07 11:06:04 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,16 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const &executor)
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	if (executor.getGrade() <= this->getExeGrade())// check if the form has been signed or not
+	if (executor.getGrade() <= this->getExeGrade() && this->getSigned() == true)// check if the form has been signed or not
 	{
 		std::cout << target << " you have been pardoned by Zaphod Beeblebrox." << std::endl;
 	}
+	else if (executor.getGrade() > this->getExeGrade() && this->getSigned() == false)
+		throw FormGradeTooLowException();
+	else if (this->getSigned() == false)
+		throw FormNotSigned();
+	else
+		throw FormGradeTooLowException();
 }
