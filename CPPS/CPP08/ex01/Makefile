@@ -1,7 +1,7 @@
 
 NAME = Span
 
-SOURCE = main.cpp
+SOURCE = main.cpp Span.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

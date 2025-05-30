@@ -1,5 +1,5 @@
 
-NAME = Span
+NAME = MutantStack
 
 SOURCE = main.cpp
 
