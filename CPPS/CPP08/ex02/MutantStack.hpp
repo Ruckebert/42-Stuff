@@ -6,25 +6,45 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:01:46 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/05/29 13:34:40 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/06/04 10:23:27 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
-class MutantStack
+#include <iostream>
+#include <stack>
+#include <deque>
+
+template <typename T, class Container=std::deque<T> >
+class MutantStack: public std::stack<T, Container>
 {
 	private:
-
 	public:
-	void push();
-	void pop();
-	void top();
-	void size();
+	MutantStack(){}; //contructor
+	~MutantStack(){}; //destructor
+	MutantStack(const MutantStack& type): std::stack<T, Container>(type) {}; //copy contructor
+	MutantStack &operator=(const MutantStack& type1) //copy assignment
+	{
+		std::cout << "Copy assignment called\n";
+		if (this != &type1)
+		{
+			std::stack<T, Container>::operator=(type1);
+		}
+		return (*this);
+	};
 
-	void begin(); //iterator
-	void end(); //iterator
+	typedef typename Container::iterator iterator;
+	iterator begin() //iterator
+	{
+		return (this->c.begin());
+	}
+
+	iterator end() //iterator
+	{
+		return (this->c.end());
+	}
 };
 
 #endif
