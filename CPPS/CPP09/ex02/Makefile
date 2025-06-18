@@ -1,7 +1,7 @@
 
-NAME = Random
+NAME = MutantStack
 
-SOURCE = main.cpp A.cpp B.cpp C.cpp Base.cpp
+SOURCE = main.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

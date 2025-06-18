@@ -1,7 +1,7 @@
 
-NAME = Random
+NAME = RPN
 
-SOURCE = main.cpp A.cpp B.cpp C.cpp Base.cpp
+SOURCE = main.cpp RPN.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

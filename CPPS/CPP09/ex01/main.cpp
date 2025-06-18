@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 15:18:25 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/04/01 14:16:33 by aruckenb         ###   ########.fr       */
+/*   Created: 2025/06/10 09:59:00 by aruckenb          #+#    #+#             */
+/*   Updated: 2025/06/12 10:27:49 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+//Use a list for this excerise
 
-#include <iostream>
-#include <string>
-#include <new>
+#include <cstdlib>
+#include "RPN.hpp"
 
-class Zombie
+int main(int argc, char **argv)
 {
-	private:
-	std::string name;
-
-	public:
-	Zombie(std::string name1);
-	~Zombie();
-
-	// Setter&Getter
-	void ZombieNameSet(std::string &input);
-	std::string ZombieNameGet(void);
-	
-	void announce(void);
-
-
-} ;
-
-
-Zombie* newZombie (std::string name);
-void randomChump(std::string name);
-
-#endif
+	RPN one;
+	if (argc != 2)
+		return (0);
+	int i = 0;
+	while (argv[1][i])
+		i++;
+	if (i < 5 || isdigit(argv[1][i - 1]))
+	{
+		std::cerr << "An Error has occured!" << std::endl;
+		return (1);
+	}
+	one.check_value(argv[1]);
+	std::cout << one.result() << std::endl;
+}

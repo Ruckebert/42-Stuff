@@ -1,7 +1,7 @@
 
-NAME = Random
+NAME = btc
 
-SOURCE = main.cpp A.cpp B.cpp C.cpp Base.cpp
+SOURCE = main.cpp BitcoinExchange.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

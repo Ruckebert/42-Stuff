@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:13:55 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/25 13:17:33 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/04/08 10:47:32 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,37 @@ int main( void )
 		
 	Fixed c( Fixed( 10) / Fixed( 2 ) );
 	
-	std::cout << c << std::endl;
+	std::cout << "Division Test Int: " <<c << std::endl;
 	
 	c = Fixed(10.5f) / Fixed(2);
 
-	std::cout << c << std::endl;
+	std::cout << "Division Test Float: " << c << std::endl;
 
 	c = Fixed(10.5f) > Fixed(2);
 
-	std::cout << c << std::endl;
+	std::cout << "Greater than: " << c << std::endl;
 
 	c = Fixed(10.5f) < Fixed(2);
 
-	std::cout << c << std::endl;
+	std::cout << "Less than: " << c << std::endl;
 
+	std::cout << "Minus Minus Before: " << a-- << std::endl;
 
-	std::cout << a-- << std::endl;
+	std::cout << "Minus Minus After: " << a << std::endl;
 
-	std::cout << a << std::endl;
+	std::cout << "Forward Minus Minus Before: " << --a << std::endl;
 
-	std::cout << --a << std::endl;
-
-	std::cout << a << std::endl;
+	std::cout << "Forward Minus Minus After: " << a << std::endl;
 
 	Fixed const d( Fixed( 10.5f ) - Fixed( 2 ) );
 		
-	std::cout << d << std::endl;
+	std::cout << "Subtraction: " << d << std::endl;
 
-	std::cout << Fixed::min( a, b ) << std::endl;
+	std::cout << "Min: " << Fixed::min( a, b ) << std::endl;
 
-	Fixed const e( Fixed( 10.5f ) - Fixed( 2 ) );
-	std::cout << e << std::endl;
+	Fixed const e( Fixed( 10.5f ) + Fixed( 2 ) );
+
+	std::cout << "Addition: " <<  e << std::endl;
+	
 	return 0;
 }

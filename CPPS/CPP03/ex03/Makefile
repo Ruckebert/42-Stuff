@@ -1,7 +1,7 @@
 
-NAME = FragTrap
+NAME = DiamondTrap
 
-SOURCE = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SOURCE = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJECTS = $(SOURCE:.cpp=.o)
 

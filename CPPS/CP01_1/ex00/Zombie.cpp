@@ -6,13 +6,14 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:18:59 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/19 11:10:50 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/04/01 14:18:17 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name): name(name) {}
+Zombie::Zombie(std::string name): name(name) {
+}
 
 Zombie::~Zombie() 
 {

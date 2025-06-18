@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:13:55 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/18 10:11:36 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/04/02 13:32:22 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main( void )
 	Fixed b( a );
 	Fixed c;
 	c = b;
+
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;

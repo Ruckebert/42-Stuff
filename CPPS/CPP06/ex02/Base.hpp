@@ -6,12 +6,15 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 13:38:03 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/05/15 13:48:53 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/05/19 13:40:50 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BASE_HPP
 #define BASE_HPP
+
+#include <iostream>
+#include <cstdlib>
 
 class Base
 {
@@ -22,7 +25,6 @@ class Base
 	Base(const Base& type);
 	Base &operator=(const Base& type);
 	virtual ~Base();
-	
 	
 };
 

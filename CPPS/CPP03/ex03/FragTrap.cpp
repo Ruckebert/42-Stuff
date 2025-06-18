@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 11:26:45 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/26 11:43:05 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/04/09 11:01:54 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ FragTrap::FragTrap(std::string name1): ClapTrap(name1)
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap Destructor" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &type): ClapTrap(type)
+{
+	std::cout << "Copy constructor called\n";
+}
+
+FragTrap &FragTrap::operator=(const FragTrap& type)
+{
+	std::cout << "Copy assignment called\n";
+	if (this != &type)
+	{
+		ClapTrap::operator=(type);
+	}
+	return (*this);
 }
 
 void FragTrap::highFivesGuys(void)

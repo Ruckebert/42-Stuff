@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 15:18:25 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/04/01 14:16:33 by aruckenb         ###   ########.fr       */
+/*   Created: 2025/05/20 10:44:35 by aruckenb          #+#    #+#             */
+/*   Updated: 2025/05/20 11:04:32 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "B.hpp"
 
-#include <iostream>
-#include <string>
-#include <new>
-
-class Zombie
+B::B()
 {
-	private:
-	std::string name;
+	std::cout << "B Constructor" << std::endl;
+}
 
-	public:
-	Zombie(std::string name1);
-	~Zombie();
+B::~B()
+{
+	std::cout << "B Destructor" << std::endl;
+}
 
-	// Setter&Getter
-	void ZombieNameSet(std::string &input);
-	std::string ZombieNameGet(void);
-	
-	void announce(void);
+B::B(const B &type1): Base(type1)
+{
+}
 
-
-} ;
-
-
-Zombie* newZombie (std::string name);
-void randomChump(std::string name);
-
-#endif
+B &B::operator=(const B& type1)
+{
+	std::cout << "Copy assignment called\n";
+	if (this != &type1)
+	{
+		*this = type1;
+	}
+	return (*this);
+}

@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 11:51:03 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/26 13:06:56 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/04/09 11:03:49 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,22 @@
 # define DIAMONDTRAP_HPP
  
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class DiamondTrap: public ClapTrap, public FragTrao, public ScavTrap
+class DiamondTrap: public FragTrap, public ScavTrap
 {
 	private:
+	std::string _name;
 
 	public:
-	FragTrap();
-	FragTrap(std::string name);
-	~FragTrap();
+	DiamondTrap();
+	DiamondTrap(std::string name);
+	DiamondTrap(const DiamondTrap& type);
+	DiamondTrap &operator=(const DiamondTrap& type);
+	~DiamondTrap();
 
-	void highFivesGuys(void);
+	void whoAmI(void);
 };
 
 #endif

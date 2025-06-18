@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:14:38 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/25 11:34:32 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/04/08 10:41:25 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ const Fixed& Fixed::max(const Fixed& FixNum1, const Fixed& FixNum2)
 		return (FixNum2);
 }
 
-//Comparison Operators
+//Copy Assignment
 Fixed &Fixed::operator=(const Fixed& type)
 {
 	std::cout << "Copy assignment called\n";
@@ -109,6 +109,7 @@ Fixed &Fixed::operator=(const Fixed& type)
 	return (*this);
 }
 
+//Comparison Operators
 bool Fixed::operator>(const Fixed& type) const
 {
 	return (this->getRawBits() > type.getRawBits());
@@ -161,7 +162,6 @@ Fixed Fixed::operator/(const Fixed& type) const
 	{
 		std::cerr << "Error: Division by zero" << std::endl;
 		return (Fixed());
-
 	}
 	return Fixed((this->toFloat() / type.toFloat()));
 }

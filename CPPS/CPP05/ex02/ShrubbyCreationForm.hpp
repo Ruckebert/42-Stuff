@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:55:03 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/05/07 11:07:22 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:38:05 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ class ShrubbyCreationForm: public AForm
 	void execute(class Bureaucrat const &executor) const;
 
 };
-
 
 #endif

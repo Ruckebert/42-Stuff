@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:14:35 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/25 10:22:42 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:06:19 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ class Fixed
 	
 	//Copy Assignment
 	Fixed &operator=(const Fixed& type);
+
+	//Comparison Operators
 	bool operator>(const Fixed& type) const ;
 	bool operator>=(const Fixed& type);
 	bool operator<(const Fixed& type) const ;
@@ -43,11 +45,13 @@ class Fixed
 	bool operator==(const Fixed& type);
 	bool operator!=(const Fixed& type);
 
+	//Arithmetic operators
 	Fixed operator+(const Fixed& type) const ;
 	Fixed operator-(const Fixed& type) const ;
 	Fixed operator*(const Fixed& type) const ;
 	Fixed operator/(const Fixed& type) const ;
 
+	//Incremenet and decrement operators
 	Fixed& operator++();
 	Fixed operator++(int);
 	Fixed& operator--();

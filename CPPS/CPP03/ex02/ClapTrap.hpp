@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:27:58 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/03/26 11:16:48 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/03/27 13:05:22 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class ClapTrap
 	public:
 	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap& type);
+	ClapTrap &operator=(const ClapTrap& type);
 	~ClapTrap();
 
 	void attack(const std::string& target);
@@ -38,8 +40,12 @@ class ClapTrap
 	void SetAttackDamage(int type);
 	void SetHp(unsigned int type);
 	void SetEnergy(int type);
+	int GetAttackDamage(void);
+	unsigned int GetHp(void);
+	int GetEng(void);
+	void Namesetter(std::string type);
 	std::string NameGetter(void);
-	
+
 	void SetClassname(std::string type);
 	std::string classNameGetter(void);
 };
