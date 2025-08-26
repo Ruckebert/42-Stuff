@@ -1,5 +1,5 @@
 
-NAME = MutantStack
+NAME = Pmerge
 
 SOURCE = main.cpp
 
