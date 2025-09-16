@@ -6,7 +6,7 @@
 /*   By: aruckenb <aruckenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:21:51 by aruckenb          #+#    #+#             */
-/*   Updated: 2025/09/08 11:46:36 by aruckenb         ###   ########.fr       */
+/*   Updated: 2025/09/11 10:03:56 by aruckenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,17 @@ bool checker(int argc, char **argv)
 	{
 		std::string str = argv[i];
 		if (str.length() > 10)
+		{
             throw (false);
+		}
         if (str.length() == 10 && str > "2147483647")
-           	throw (false);
+        {
+            throw (false);
+		}
 		if (atoi(argv[i]) < 0)
-			throw (false);
+		{
+            throw (false);
+		}
 		size_t j = 0;
 		while (argv[i][j])
 		{
@@ -186,6 +192,7 @@ int main(int argc, char **argv)
 		}
 		std::cout << std::endl;
 	}
+	std::cout << "Total amount of comparisons" << com << std::endl;
 	std::cout << std::endl;
     std::cout << "Sorting time for Vector " <<  type1.size() << " elements: " << duration << " seconds" << std::endl;
     std::cout << "Sorting time for Deque " <<  type2.size() << " elements: " << duration2 << " seconds" << std::endl;
