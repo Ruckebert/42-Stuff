@@ -1,10 +1,11 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 
-class bigint {
+class bigint 
+{
 	private:
-
 	std::string num;
 
 	public:
@@ -23,8 +24,9 @@ class bigint {
         	num = n;
 	}
 
-	friend std::ostream& operator<<(std::ostream& os, const bigint& b) {
-    	return os << b.num;
+	std::string outp() const {
+
+		return (num);
 	}
 
 	std::string add_strings(const std::string& n1, const std::string& n2) const {
@@ -112,4 +114,9 @@ class bigint {
     	(void) oth;
     	return bigint();
 	}
+};
+
+std::ostream& operator<<(std::ostream& os, const bigint& b) 
+{
+    	return os << b.outp();
 };

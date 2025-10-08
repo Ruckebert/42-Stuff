@@ -5,8 +5,8 @@ class set {
 	private:
 		searchable_bag &bag;
 	public:
-		set(searchable_bag &bg) : bag(bg) {}
-		~set() {}
+		set(searchable_bag &bg) : bag(bg) {} //contructor
+		~set() {} //destructor
 		void insert(int item) {
 			if (!bag.has(item))
 				bag.insert(item);
@@ -18,7 +18,8 @@ class set {
 		bool has(int item) const {
 			return bag.has(item);
 		}
-		void print() {
+		void print() 
+		{
 			bag.print();
 		}
 		void clear() {
