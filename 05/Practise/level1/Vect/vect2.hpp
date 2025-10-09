@@ -120,7 +120,12 @@ class vect2
 	{
 		return !(x == oth.x && y == oth.y);
 	}
-
+	
+	//std::string to_string() const
+	//{
+	//	return "{" + std::to_string(x) + ", " + std::to_string(y) + "}";
+	//}
+	
 	friend std::ostream& operator<<(std::ostream& os, const vect2& v)
 	{
 		os << "{" << v[0] << ", " << v[1] << "}";
