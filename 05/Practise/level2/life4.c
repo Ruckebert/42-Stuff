@@ -4,6 +4,8 @@
 
 int main (int argc, char **argv)
 {
+	if (argc != 4)
+		return 1;
 	(void)argc;
 	int w = atoi(argv[1]), h = atoi(argv[2]), iter = atoi(argv[3]);
 	int board[h][w], next[h][w], x = 0, y = 0, pen = 0;
@@ -29,7 +31,7 @@ int main (int argc, char **argv)
 			y++;
 		else if (c == 'a' && x > 0)
 			x--;
-		else if (c === 'd' && x < w - 1)
+		else if (c == 'd' && x < w - 1)
 			x++;
 		else if (c == 'x')
 			pen = 1;
@@ -85,7 +87,11 @@ int main (int argc, char **argv)
 		int j = 0;
 		while (j < w)
 		{
-			putchar(board[i][j] ? '0' : ' ');
+			if (board[i][j])
+				putchar('O');
+			else
+				putchar(' ');
+			//putchar(board[i][j] ? '0' : ' ');
 			j++;
 		}
 		putchar('\n'); //forgot new line but not the end of the world
