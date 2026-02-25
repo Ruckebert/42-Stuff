@@ -1,0 +1,77 @@
+version: "3.8"
+
+services:
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    ports: 
+      - "443:443"
+    volumes:
+      - wordpress:/var/www/wordpress
+    networks:
+      - inception
+    restart: always
+    secrets:
+      - tls_key
+      - tls_cert
+    env_file:
+      - .env
+  wordpress:
+    build:  ./requirements/wordpress
+    container_name: wordpress
+    volumes:
+      - wordpress:/var/www/wordpress
+    networks:
+      - inception
+    restart: always
+    env_file:
+      - .env
+    secrets:
+      - db_password
+      - wp_admin_password
+    depends_on:
+      - mariadb
+
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - inception
+    restart: always
+    env_file:
+      - .env
+    secrets:
+      - db_password
+      - db_root_password
+
+volumes:
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/arucken/data/wordpress
+      o: bind
+  mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/arucken/data/mariadb
+      o: bind
+
+networks:
+  inception:
+    driver: bridge
+
+secrets:
+  db_root_password:
+    file: ./requirements/secrets/db_root_password.txt
+  db_password:
+    file: ./requirements/secrets/db_password.txt
+  wp_admin_password:
+    file: ./requirements/secrets/wp_admin_password.txt
+  tls_cert:
+    file: ./requirements/secrets/tls_cert.txt
+  tls_key:
+    file: ./requirements/secrets/tls_key.txt
