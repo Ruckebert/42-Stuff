@@ -8,6 +8,19 @@ Inception aims to broaden your knowledge of system administration by using Docke
 
 ## Instructions
 
+To Compile the projet, run:
+
+'''bash make build'''  - This will build up the containers and images
+
+'''bash make up'''  - This makes up each of the images
+
+'''bash make down''' - This command builds the containers down
+
+'''bash make fclean''' - cleans all the containers and removes the data stored it inside
+
+'''bash make ps''' - executes docker ps
+
+
 ## Resources
 Docker Basic Turtorial - https://docker-curriculum.com/ 
 
