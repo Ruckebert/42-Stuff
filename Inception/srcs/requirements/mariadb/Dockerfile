@@ -11,4 +11,4 @@ COPY conf/my.cnf /etc/mysql/my.cnf
 
 EXPOSE 3306
 
-CMD ["/init.sh"]
+ENTRYPOINT ["/init.sh"]
