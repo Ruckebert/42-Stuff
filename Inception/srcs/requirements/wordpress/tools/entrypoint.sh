@@ -17,14 +17,21 @@ fi
 # Create wp-config.php if not exists
 if [ ! -f /var/www/wordpress/wp-config.php ]; then
     echo "Creating wp-config.php..."
-    cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
+    #cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
     
-    sed -i "s/database_name_here/${WORDPRESS_DB_NAME}/g" /var/www/wordpress/wp-config.php
-    sed -i "s/username_here/${WORDPRESS_DB_USER}/g" /var/www/wordpress/wp-config.php
-    sed -i "s/password_here/$(cat /run/secrets/db_password)/g" /var/www/wordpress/wp-config.php
-    sed -i "s/localhost/mariadb/g" /var/www/wordpress/wp-config.php
+    #sed -i "s/database_name_here/${WORDPRESS_DB_NAME}/g" /var/www/wordpress/wp-config.php
+    #sed -i "s/username_here/${WORDPRESS_DB_USER}/g" /var/www/wordpress/wp-config.php
+    #sed -i "s/password_here/$(cat /run/secrets/db_password)/g" /var/www/wordpress/wp-config.php
+    #sed -i "s/localhost/mariadb/g" /var/www/wordpress/wp-config.php
     
-    chown www-data:www-data /var/www/wordpress/wp-config.php
+    #chown www-data:www-data /var/www/wordpress/wp-config.php
+
+    wp config create \
+    --dbname=${WORDPRESS_DB_NAME} \
+    --dbuser=${WORDPRESS_DB_USER} \
+    --dbpass=$(cat /run/secrets/db_password) \
+    --dbhost=mariadb \
+    --allow-root
     
     # Wait for database to be fully ready
     sleep 5
