@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by aruckeb*
+*This project has been created as part of the 42 curriculum by aruckenb*
 
 # Inception - Basic Docker 
 
