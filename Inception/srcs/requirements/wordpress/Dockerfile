@@ -18,12 +18,15 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 WORKDIR /var/www/wordpress
 
-RUN wget https://wordpress.org/latest.tar.gz && \
-    tar -xzf latest.tar.gz && \
-    rm latest.tar.gz && \
-    mv wordpress/* . && \
-    rmdir wordpress 2>/dev/null || true && \
-    chown -R www-data:www-data /var/www/wordpress
+##RUN wget https://wordpress.org/latest.tar.gz && \
+##    tar -xzf latest.tar.gz && \
+##    rm latest.tar.gz && \
+#  mv wordpress/* . && \
+#    rmdir wordpress 2>/dev/null || true && \
+#    chown -R www-data:www-data /var/www/wordpress
+
+RUN wget -qO- https://wordpress.org/latest.tar.gz | tar -xz --strip-components=1 \
+    && chown -R www-data:www-data /var/www/wordpress
 
 COPY tools/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
